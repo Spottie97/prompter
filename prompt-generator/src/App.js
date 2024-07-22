@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ThemeProvider, createTheme, CssBaseline, Container, Switch, Typography, AppBar, Toolbar } from '@mui/material';
 import PromptForm from './PromptForm';
+import ScrollToTopButton from './ScrollToTopButton';
 import './App.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Container>
         <PromptForm />
       </Container>
+      <ScrollToTopButton />
     </ThemeProvider>
   );
 }
