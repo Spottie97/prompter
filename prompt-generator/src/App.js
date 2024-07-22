@@ -2,6 +2,7 @@ import React from 'react';
 import { ThemeProvider, createTheme, CssBaseline, Container, Typography } from '@mui/material';
 import PromptForm from './PromptForm';
 import ScrollToTopButton from './ScrollToTopButton';
+import { Analytics } from '@vercel/analytics/react';
 import './App.css';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <CssBaseline />
       <Container>
         <PromptForm />
+        <Analytics />
       </Container>
       <ScrollToTopButton />
     </ThemeProvider>
