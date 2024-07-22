@@ -54,3 +54,18 @@ pre {
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
+.tooltip-icon {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.tooltip {
+  margin-top: 10px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  max-width: 600px;
+  margin: 10px auto;
+}
