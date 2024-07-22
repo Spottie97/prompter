@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Container, TextField, Button, Typography, IconButton, Tooltip, Box, Paper
 } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { faQuestionCircle, faCopy } from '@fortawesome/free-solid-svg-icons';
 
 const PromptForm = () => {
   const [context, setContext] = useState('');
@@ -13,6 +13,7 @@ const PromptForm = () => {
   const [output, setOutput] = useState('');
   const [prompt, setPrompt] = useState('');
   const [tooltip, setTooltip] = useState('');
+  const outputRef = useRef(null);
 
   const handleTooltip = (description, example) => {
     if (tooltip.description === description) {
@@ -41,6 +42,13 @@ const PromptForm = () => {
       ${output}
     `;
     setPrompt(generatedPrompt);
+    if (outputRef.current) {
+      outputRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(prompt);
   };
 
   return (
@@ -195,12 +203,20 @@ const PromptForm = () => {
           </Button>
         </form>
         {prompt && (
-          <Box mt={4}>
+          <Box mt={4} ref={outputRef}>
             <Typography variant="h5" gutterBottom>
               Generated Prompt:
             </Typography>
-            <Paper elevation={1} sx={{ padding: 2 }}>
+            <Paper elevation={1} sx={{ padding: 2, position: 'relative' }}>
               <pre>{prompt}</pre>
+              <Tooltip title="Copy to clipboard" arrow>
+                <IconButton
+                  onClick={handleCopy}
+                  sx={{ position: 'absolute', top: 10, right: 10 }}
+                >
+                  <FontAwesomeIcon icon={faCopy} />
+                </IconButton>
+              </Tooltip>
             </Paper>
           </Box>
         )}
