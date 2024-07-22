@@ -14,7 +14,12 @@ function App() {
   const [tooltip, setTooltip] = useState('');
 
   const handleTooltip = (description, example) => {
-    setTooltip({ description, example });
+    // Toggle the tooltip state
+    if (tooltip.description === description) {
+      setTooltip('');
+    } else {
+      setTooltip({ description, example });
+    }
   };
 
   const renderTooltip = (description, example) => (
