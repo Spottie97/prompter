@@ -20,6 +20,7 @@ const ScrollToTopButton = () => {
         color="primary"
         onClick={scrollToTop}
         startIcon={<ArrowUpwardIcon />}
+        sx={{ borderRadius: 2 }}
       >
         Back to Top
       </Button>

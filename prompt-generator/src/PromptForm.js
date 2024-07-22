@@ -55,8 +55,8 @@ const PromptForm = () => {
 
   return (
     <Container maxWidth="md">
-      <Paper elevation={3} sx={{ padding: 3, marginTop: 5 }}>
-        <Typography variant="h4" gutterBottom>
+      <Paper elevation={3} sx={{ padding: 3, marginTop: 5, borderRadius: 16 }}>
+        <Typography variant="h4" gutterBottom style={{ color: '#003cde' }}>
           Prompt Generator
         </Typography>
         <form onSubmit={handleSubmit}>
@@ -70,6 +70,7 @@ const PromptForm = () => {
               value={context}
               onChange={(e) => setContext(e.target.value)}
               InputProps={{
+                style: { backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: 16 },
                 endAdornment: (
                   <Tooltip
                     title={
@@ -80,7 +81,7 @@ const PromptForm = () => {
                     }
                     arrow
                   >
-                    <IconButton>
+                    <IconButton tabIndex={-1}>
                       <FontAwesomeIcon icon={faQuestionCircle} />
                     </IconButton>
                   </Tooltip>
@@ -98,6 +99,7 @@ const PromptForm = () => {
               value={objective}
               onChange={(e) => setObjective(e.target.value)}
               InputProps={{
+                style: { backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: 16 },
                 endAdornment: (
                   <Tooltip
                     title={
@@ -108,7 +110,7 @@ const PromptForm = () => {
                     }
                     arrow
                   >
-                    <IconButton>
+                    <IconButton tabIndex={-1}>
                       <FontAwesomeIcon icon={faQuestionCircle} />
                     </IconButton>
                   </Tooltip>
@@ -126,6 +128,7 @@ const PromptForm = () => {
               value={requirements}
               onChange={(e) => setRequirements(e.target.value)}
               InputProps={{
+                style: { backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: 16 },
                 endAdornment: (
                   <Tooltip
                     title={
@@ -136,7 +139,7 @@ const PromptForm = () => {
                     }
                     arrow
                   >
-                    <IconButton>
+                    <IconButton tabIndex={-1}>
                       <FontAwesomeIcon icon={faQuestionCircle} />
                     </IconButton>
                   </Tooltip>
@@ -154,6 +157,7 @@ const PromptForm = () => {
               value={examples}
               onChange={(e) => setExamples(e.target.value)}
               InputProps={{
+                style: { backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: 16 },
                 endAdornment: (
                   <Tooltip
                     title={
@@ -164,7 +168,7 @@ const PromptForm = () => {
                     }
                     arrow
                   >
-                    <IconButton>
+                    <IconButton tabIndex={-1}>
                       <FontAwesomeIcon icon={faQuestionCircle} />
                     </IconButton>
                   </Tooltip>
@@ -182,6 +186,7 @@ const PromptForm = () => {
               value={output}
               onChange={(e) => setOutput(e.target.value)}
               InputProps={{
+                style: { backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: 16 },
                 endAdornment: (
                   <Tooltip
                     title={
@@ -192,7 +197,7 @@ const PromptForm = () => {
                     }
                     arrow
                   >
-                    <IconButton>
+                    <IconButton tabIndex={-1}>
                       <FontAwesomeIcon icon={faQuestionCircle} />
                     </IconButton>
                   </Tooltip>
@@ -200,7 +205,7 @@ const PromptForm = () => {
               }}
             />
           </Box>
-          <Button type="submit" variant="contained" color="primary" fullWidth>
+          <Button type="submit" variant="contained" color="primary" fullWidth sx={{ borderRadius: 16 }}>
             Generate Prompt
           </Button>
         </form>
@@ -209,12 +214,13 @@ const PromptForm = () => {
             <Typography variant="h5" gutterBottom>
               Generated Prompt:
             </Typography>
-            <Paper elevation={1} sx={{ padding: 2, position: 'relative' }}>
+            <Paper elevation={1} sx={{ padding: 2, position: 'relative', borderRadius: 16 }}>
               <pre>{prompt}</pre>
               <Tooltip title="Copy to clipboard" arrow>
                 <IconButton
                   onClick={handleCopy}
                   sx={{ position: 'absolute', top: 10, right: 10 }}
+                  tabIndex={-1}
                 >
                   <FontAwesomeIcon icon={faCopy} />
                 </IconButton>
