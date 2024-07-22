@@ -20,8 +20,12 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
-app.post('/generatePrompt', (req, res) => {
+app.post('/api/generatePrompt', (req, res) => {
   const { context, objective, requirements, examples, output } = req.body;
+
+  if (!context || !objective || !requirements || !examples || !output) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
 
   const prompt = `
     Context:
@@ -41,6 +45,15 @@ app.post('/generatePrompt', (req, res) => {
   `;
 
   res.json({ prompt });
+});
+
+app.get('/', (req, res) => {
+  res.send('Backend is running');
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 app.listen(port, () => {
