@@ -31,7 +31,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post('https://prompt-generator-backend-94nuupj7v-spottie97s-projects.vercel.app/generatePrompt', {
+    const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/generatePrompt`, {
       context,
       objective,
       requirements,
