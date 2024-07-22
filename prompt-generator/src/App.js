@@ -31,7 +31,7 @@ function App() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post('http://localhost:5000/generatePrompt', {
+    const response = await axios.post('http://localhost:5001/generatePrompt', {
       context,
       objective,
       requirements,
@@ -39,7 +39,7 @@ function App() {
       output
     });
     setPrompt(response.data.prompt);
-  };
+  };  
 
   return (
     <div className="App">
