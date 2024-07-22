@@ -42,9 +42,11 @@ const PromptForm = () => {
       ${output}
     `;
     setPrompt(generatedPrompt);
-    if (outputRef.current) {
-      outputRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    setTimeout(() => {
+      if (outputRef.current) {
+        outputRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   const handleCopy = () => {

@@ -72,7 +72,7 @@ pre {
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .App {
@@ -84,3 +84,13 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+pre {
+  text-align: left;
+  background-color: inherit; /* inherit background color for dark mode */
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+
