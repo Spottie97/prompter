@@ -10,6 +10,7 @@ function App() {
   const [requirements, setRequirements] = useState('');
   const [examples, setExamples] = useState('');
   const [output, setOutput] = useState('');
+  const [prompt, setPrompt] = useState('');
   const [tooltip, setTooltip] = useState('');
 
   const handleTooltip = (description, example) => {
